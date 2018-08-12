@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server-provisioning xmlns="urn:wildfly:server-provisioning:1.1" copy-module-artifacts="true">
+
+	<feature-packs>
+		<feature-pack groupId="org.hibernate" artifactId="hibernate-orm-jbossmodules" version="5.3.2.Final" />
+		<feature-pack groupId="org.hibernate" artifactId="hibernate-search-jbossmodules-engine" version="5.10.2.Final" />
+		<feature-pack groupId="org.hibernate" artifactId="hibernate-search-jbossmodules-orm" version="5.10.2.Final" />
+		<feature-pack groupId="org.hibernate.ogm" artifactId="hibernate-ogm-featurepack-core" version="5.4.0.Beta2" />
+		<feature-pack groupId="org.hibernate.ogm" artifactId="hibernate-ogm-featurepack-mongodb" version="5.4.0.Beta2" />
+		<feature-pack groupId="org.wildfly" artifactId="wildfly-feature-pack" version="13.0.0.Final" />
+	</feature-packs>
+	
+</server-provisioning>
+
