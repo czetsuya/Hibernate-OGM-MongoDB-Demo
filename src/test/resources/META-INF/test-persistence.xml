@@ -8,20 +8,19 @@
 	<persistence-unit name="primary"
 		transaction-type="JTA">
 		<provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider>
-		<jta-data-source>java:jboss/datasources/hibernate-ogm-mongodb-demoTestDS</jta-data-source>
+<!-- 		<jta-data-source>java:jboss/datasources/hibernate-ogm-mongodb-demoTestDS</jta-data-source> -->
 		
 		<properties>
 			<property name="jboss.as.jpa.providerModule" value="org.hibernate:5.3" />
 			<property name="wildfly.jpa.hibernate.search.module" value="org.hibernate.search.orm:5.10.2.Final" />
 
 			<property name="hibernate.ogm.datastore.provider" value="mongodb" />
-		    <property name="hibernate.connection.resource" value="java:jboss/mongodb/client"/>
-			<property name="hibernate.ogm.datastore.host" value="localhost" />
-			<property name="hibernate.ogm.mongodb.authentication_mechanism" value="BEST" />
-			<property name="hibernate.ogm.datastore.database" value="mydb" />
-			<property name="hibernate.ogm.mongodb.authentication_database" value="admin" />
-			<property name="hibernate.ogm.datastore.username" value="admin" />
-			<property name="hibernate.ogm.datastore.password" value="admin" />
+			<property name="hibernate.ogm.datastore.host" value="localhost:27017" />
+			<property name="hibernate.ogm.mongodb.authentication_mechanism" value="SCRAM_SHA_1" />
+			<property name="hibernate.ogm.datastore.database" value="test" />
+			<property name="hibernate.ogm.mongodb.authentication_database" value="test" />
+			<property name="hibernate.ogm.datastore.username" value="edward" />
+			<property name="hibernate.ogm.datastore.password" value="edward" />
 			<property name="hibernate.ogm.datastore.create_database" value="true" />
 			<property name="hibernate.ogm.mongodb.write_concern" value="JOURNALED" />
 			<property name="hibernate.ogm.mongodb.read_preference" value="NEAREST" />

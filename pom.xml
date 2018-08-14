@@ -251,13 +251,13 @@
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongo-java-driver</artifactId>
 		</dependency>
-		
-        <dependency>
-            <groupId>org.hibernate.ogm</groupId>
-            <artifactId>hibernate-ogm-core</artifactId>
-            <type>test-jar</type>
-            <scope>test</scope>
-        </dependency>
+
+		<dependency>
+			<groupId>org.hibernate.ogm</groupId>
+			<artifactId>hibernate-ogm-core</artifactId>
+			<type>test-jar</type>
+			<scope>test</scope>
+		</dependency>
 
 	</dependencies>
 
@@ -266,24 +266,24 @@
 			given to the generated war, and hence the context root) -->
 		<finalName>${project.artifactId}</finalName>
 		<plugins>
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.wildfly.build</groupId> -->
-<!-- 				<artifactId>wildfly-server-provisioning-maven-plugin</artifactId> -->
-<!-- 				<version>1.2.6.Final</version> -->
-<!-- 				<executions> -->
-<!-- 					<execution> -->
-<!-- 						<id>server-provisioning</id> -->
-<!-- 						<goals> -->
-<!-- 							<goal>build</goal> -->
-<!-- 						</goals> -->
-<!-- 						<phase>compile</phase> -->
-<!-- 						<configuration> -->
-<!-- 							<config-file>server-provisioning.xml</config-file> -->
-<!-- 							<server-name>wildfly-with-updated-hibernate-ogm-mongo</server-name> -->
-<!-- 						</configuration> -->
-<!-- 					</execution> -->
-<!-- 				</executions> -->
-<!-- 			</plugin> -->
+			<!-- <plugin> -->
+			<!-- <groupId>org.wildfly.build</groupId> -->
+			<!-- <artifactId>wildfly-server-provisioning-maven-plugin</artifactId> -->
+			<!-- <version>1.2.6.Final</version> -->
+			<!-- <executions> -->
+			<!-- <execution> -->
+			<!-- <id>server-provisioning</id> -->
+			<!-- <goals> -->
+			<!-- <goal>build</goal> -->
+			<!-- </goals> -->
+			<!-- <phase>compile</phase> -->
+			<!-- <configuration> -->
+			<!-- <config-file>server-provisioning.xml</config-file> -->
+			<!-- <server-name>wildfly-with-updated-hibernate-ogm-mongo</server-name> -->
+			<!-- </configuration> -->
+			<!-- </execution> -->
+			<!-- </executions> -->
+			<!-- </plugin> -->
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>${version.war.plugin}</version>
@@ -323,6 +323,21 @@
 			</activation>
 			<build>
 				<plugins>
+					<!-- <plugin> -->
+					<!-- <groupId>org.apache.maven.plugins</groupId> -->
+					<!-- <artifactId>maven-failsafe-plugin</artifactId> -->
+					<!-- <version>2.22.0</version> -->
+					<!-- <executions> -->
+					<!-- <execution> -->
+					<!-- <id>integration-test</id> -->
+					<!-- <phase>integration-test</phase> -->
+					<!-- <goals> -->
+					<!-- <goal>integration-test</goal> -->
+					<!-- <goal>verify</goal> -->
+					<!-- </goals> -->
+					<!-- </execution> -->
+					<!-- </executions> -->
+					<!-- </plugin> -->
 					<plugin>
 						<artifactId>maven-surefire-plugin</artifactId>
 						<version>${version.surefire.plugin}</version>

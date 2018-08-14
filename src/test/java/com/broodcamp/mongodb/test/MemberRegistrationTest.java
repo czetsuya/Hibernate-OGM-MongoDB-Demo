@@ -27,7 +27,10 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
+import org.jboss.shrinkwrap.api.asset.StringAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.jboss.shrinkwrap.descriptor.api.Descriptors;
+import org.jboss.shrinkwrap.descriptor.api.spec.se.manifest.ManifestDescriptor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -37,12 +40,18 @@ import com.broodcamp.mongodb.util.Resources;
 
 @RunWith(Arquillian.class)
 public class MemberRegistrationTest {
+
 	@Deployment
 	public static Archive<?> createTestArchive() {
+		String manifest = Descriptors.create(ManifestDescriptor.class).attribute("Dependencies", "org.hibernate.ogm:5.4 services, org.hibernate.ogm.mongodb:5.4 services")
+				.exportAsString();
+
 		return ShrinkWrap.create(WebArchive.class, "test.war") //
 				.addClasses(Member.class, MemberRegistration.class, Resources.class) //
+				.addAsResource(new StringAsset(manifest), "META-INF/MANIFEST.MF") //
 				.addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml") //
-				.addAsResource("jboss-deployment-structure.xml", "WEB-INF/jboss-deployment-structure.xml") //
+				// doesn't work on this version
+//				.addAsResource("jboss-deployment-structure.xml", "WEB-INF/jboss-deployment-structure.xml") //
 				.addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml") //
 				// Deploy our test datasource
 				.addAsWebInfResource("test-ds.xml");
